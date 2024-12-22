@@ -1,0 +1,28 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.navbar {
+  background-color: #5ad980;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+mat-toolbar-row {
+  padding: 0 24px;
+  display: flex;
+  gap: 20px;
+}
+
+a[mat-button] {
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 0 16px;
+  height: 100%;
+  border-radius: 0;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(163, 139, 139, 0.1);
+  }
+}
