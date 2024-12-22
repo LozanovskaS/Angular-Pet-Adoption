@@ -1,0 +1,35 @@
+<div class="container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (input)="applyFilter($event)" placeholder="">
+  </mat-form-field>
+
+  <div *ngIf="isLoading" class="loading">
+    Loading pets...
+  </div>
+
+  <div *ngIf="!isLoading && filteredPets.length === 0" class="no-results">
+    No pets found.
+  </div>
+
+  <div class="pet-grid" *ngIf="!isLoading && filteredPets.length > 0">
+    <div *ngFor="let pet of filteredPets" class="pet-card">
+      <div class="image-container">
+        <img [src]="pet.images?.[0]?.url"
+             [alt]="pet.name"
+             class="pet-image">
+      </div>
+      <div class="pet-info">
+        <h3>{{ pet.name }}</h3>
+        <div class="status-badge" [class]="pet.status.toLowerCase()">
+          {{ pet.status }}
+        </div>
+      </div>
+      <button (click)="viewPetDetails(pet.id)"
+              mat-button
+              class="view-button">
+        View Pet
+      </button>
+    </div>
+  </div>
+</div>

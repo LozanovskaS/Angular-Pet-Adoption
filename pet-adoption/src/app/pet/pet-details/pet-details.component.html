@@ -1,0 +1,51 @@
+<div class="pet-details" *ngIf="pet">
+    <div class="header">
+        <div class="actions">
+            <button mat-button color="primary">Edit</button>
+            <button mat-button color="warn">Delete</button>
+          </div>
+    </div>
+
+    <div class="content">
+        <div class="main-image">
+          <img [src]="pet.images?.[0]?.url || 'placeholder-image-url'" alt="Main pet image">
+        </div>
+
+    <div class="pet-info">
+            <div class="info-row">
+              <span class="label">Name:</span>
+              <span class="value">{{pet.name}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Species:</span>
+              <span class="value">{{pet.species}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Breed:</span>
+              <span class="value">{{pet.breed}}</span>
+    </div>
+
+    <div class="description">
+        <p>{{pet.description}}</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="example-button-row">
+        <button mat-flat-button class="custom-button">Image Gallery</button>
+        <button mat-flat-button class="custom-button">View adoption applications</button>
+      </div>
+    </section>
+
+    <!-- <mat-grid-list cols="3" rowHeight="200px" gutterSize="16px">
+        <mat-grid-tile *ngFor="let image of images">
+          <mat-card>
+            <img mat-card-image [src]="image.src" [alt]="image.alt" />
+            <mat-card-footer>
+              <h3>{{ image.title }}</h3>
+            </mat-card-footer>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list> -->
+  </div>
+</div>
