@@ -21,9 +21,10 @@
   <div class="pet-grid" *ngIf="!isLoading && filteredPets.length > 0">
     <div *ngFor="let pet of filteredPets" class="pet-card">
       <div class="image-container">
-        <img [src]="pet.images?.[0]?.url"
-             [alt]="pet.name"
-             class="pet-image">
+        <img [src]="pet.images?.[0]?.url || 'https://d339b5nop2tkmp.cloudfront.net/assets/listing/large_default-f37c3b2ddc539b7721ffdbd4c88987add89f2ef0fd77a71d0d44a6cf3104916e.png'"
+            [alt]="pet.name || 'Default pet image'"
+            class="pet-image">
+
       </div>
       <div class="pet-info">
         <h3>{{ pet.name }}</h3>

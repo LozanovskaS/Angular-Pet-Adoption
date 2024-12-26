@@ -52,7 +52,7 @@ export class AdoptionApplicationComponent implements OnInit {
   }
   
   getPetImage(application: AdoptionApplication): string {
-    return application.pet?.images?.[0]?.url || 'assets/placeholder-pet.jpg';
+    return application.pet?.images?.[0]?.url || 'https://d339b5nop2tkmp.cloudfront.net/assets/listing/large_default-f37c3b2ddc539b7721ffdbd4c88987add89f2ef0fd77a71d0d44a6cf3104916e.png';
   }
 
   getApplicantName(application: AdoptionApplication): string {
@@ -61,10 +61,9 @@ export class AdoptionApplicationComponent implements OnInit {
   }
 
   onStatusChange(application: any, newStatus: string): void {
-    application.status = newStatus; // Update the application status locally
+    application.status = newStatus;
     console.log('Status changed:', application);
   
-    // Send the updated status to the backend
     this.petService.updateApplicationStatus(application.id, newStatus).subscribe({
       next: () => console.log('Status updated successfully'),
       error: (err) => console.error('Failed to update status:', err)
