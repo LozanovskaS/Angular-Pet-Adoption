@@ -55,7 +55,7 @@
                 <div class="d-flex align-items-center">
                  
                   <div class="position-relative me-4" style="width: 100px; height: 100px;">
-                    <img [src]="application.pet?.images?.[0]?.url || 'assets/placeholder-pet.jpg'"
+                    <img [src]="pet.images?.[0]?.url || 'https://d339b5nop2tkmp.cloudfront.net/assets/listing/large_default-f37c3b2ddc539b7721ffdbd4c88987add89f2ef0fd77a71d0d44a6cf3104916e.png'"
                          [alt]="application.pet?.name"
                          class="w-100 h-100 rounded object-fit-cover">
                     <mat-icon class="position-absolute top-0 start-0 fs-1 pet-icon secondary-text">pets</mat-icon>

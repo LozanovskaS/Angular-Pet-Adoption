@@ -44,7 +44,6 @@ export class PetService {
     return this.http.delete<void>(`${this.imageUrl}/${imageId}`);
   }
 
-  // New methods for adoption applications
   getAdoptionApplications(): Observable<AdoptionApplication[]> {
     return this.http.get<AdoptionApplication[]>(`${this.adoptionUrl}`);
   }
@@ -61,13 +60,11 @@ export class PetService {
     return this.http.put<AdoptionApplication>(`${this.adoptionUrl}/${id}`, application);
   }
 
-  // Get applications for a specific pet
   getPetAdoptionApplications(petId: number): Observable<AdoptionApplication[]> {
     return this.http.get<AdoptionApplication[]>(`${this.adoptionUrl}/pet/${petId}`);
   }
 
-  // Optional: method to handle application status updates
   updateApplicationStatus(id: number, status: string): Observable<AdoptionApplication> {
-    return this.http.patch<AdoptionApplication>(`${this.adoptionUrl}/${id}/status`, { status });
+    return this.http.put<AdoptionApplication>(`${this.adoptionUrl}/${id}`, { status });
   }
 }
