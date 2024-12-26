@@ -1,8 +1,14 @@
 <div class="container">
   <mat-form-field appearance="fill">
-    <mat-label>Search</mat-label>
+    <mat-label>Search by name,species or breed</mat-label>
     <input matInput (input)="applyFilter($event)" placeholder="">
   </mat-form-field>
+
+  <div class="header">
+    <div class="actions">
+      <button mat-button color="primary" (click)="onCreatePet()">Create Pet</button>
+    </div>
+  </div>
 
   <div *ngIf="isLoading" class="loading">
     Loading pets...

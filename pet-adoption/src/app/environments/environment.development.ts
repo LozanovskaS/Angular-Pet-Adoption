@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'http://localhost:8085'
+    apiUrl: 'https://petadoptionapi-fmdmf6h0b5gmazf0.eastus-01.azurewebsites.net'
 };

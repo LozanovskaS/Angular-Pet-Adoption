@@ -1,0 +1,31 @@
+
+  mat-form-field {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+
+  mat-label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+ 
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  
+  mat-dialog-container {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  

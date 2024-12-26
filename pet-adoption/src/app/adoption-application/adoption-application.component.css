@@ -1,0 +1,13 @@
+.status-dropdown {
+    display: inline-block;
+    width: auto; /* Adjust the width dynamically */
+    max-width: 150px; /* Set a maximum width to ensure it doesn’t expand too much */
+  }
+  
+  .status-dropdown-field {
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+  }
+  
+  

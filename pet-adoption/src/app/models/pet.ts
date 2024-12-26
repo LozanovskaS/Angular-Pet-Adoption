@@ -7,7 +7,10 @@ export interface Pet {
     gender: string;
     description: string;
     status: string;
-    images?: PetImage[];
+    images: {
+        id: any;
+        url: string;
+    }[];
 }
 
 export interface PetImage {
@@ -15,7 +18,7 @@ export interface PetImage {
     pet: Pet;
     url: string;
     description: string;
-  }
+}
 
 
 
