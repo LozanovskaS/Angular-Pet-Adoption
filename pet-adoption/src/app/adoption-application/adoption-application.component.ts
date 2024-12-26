@@ -39,12 +39,12 @@ export class AdoptionApplicationComponent implements OnInit {
     this.isLoading = true;
     this.petService.getAdoptionApplications().subscribe({
       next: (applications) => {
-        console.log('Applications:', applications); // Debug log
+        console.log('Applications:', applications);
         this.adoptionApplications = applications;
         this.isLoading = false;
       },
       error: (err) => {
-        console.error('Error loading applications:', err); // Debug log
+        console.error('Error loading applications:', err);
         this.errorMessage = 'Failed to load adoption applications.';
         this.isLoading = false;
       },

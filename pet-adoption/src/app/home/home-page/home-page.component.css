@@ -21,38 +21,6 @@
   text-align: center;
   color: white;
 }
-
-
-/* .view-pets-button {
-  margin-top: 30px; 
-  margin-left: 20px;
-  font-size: 24px; 
-  padding: 40px 80px; 
-  background-color: #4CAF50;
-  color: white; 
-  border-radius: 10px;
-  display: inline-flex; 
-  align-items: center;
-  gap: 15px; 
-  text-decoration: none; 
-  text-transform: uppercase; 
-  font-weight: bold; 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.view-pets-button:hover {
-  background-color: #45a049; 
-  transform: scale(1.05); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.view-pets-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(72, 239, 128, 0.6); 
-} */
-
   
 
   

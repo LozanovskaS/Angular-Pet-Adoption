@@ -53,7 +53,7 @@ export class PetDetailsComponent implements OnInit {
   private loadPetDetails(id: number): void {
     this.petService.getPetById(id).subscribe((pet) => {
       this.pet = pet;
-      this.loadAdoptionApplications(); // Load adoption applications
+      this.loadAdoptionApplications(); 
     });
   }
 
@@ -61,7 +61,6 @@ export class PetDetailsComponent implements OnInit {
     if (this.pet) {
       this.petService.getAdoptionApplications().subscribe({
         next: (applications) => {
-          // Filter applications for the current pet
           this.adoptionApplications = applications.filter(
             (app) => app.pet?.id === this.pet?.id
           );
@@ -103,19 +102,18 @@ export class PetDetailsComponent implements OnInit {
         const confirm = window.confirm(`Are you sure you want to delete ${this.pet.name}? This will also delete its images.`);
   
         if (confirm) {
-          // Step 1: Delete images first
           if (this.pet.images && this.pet.images.length > 0) {
             const imageDeletions = this.pet.images.map((image) => {
-              const imageId = image.id; // Assuming each image has an 'id' field
+              const imageId = image.id;
               console.log(`Deleting image with ID: ${imageId}`);
               return this.petService.deletePetImages(imageId);
             });
   
-            // Use forkJoin to wait for all image deletions to complete
+  
             forkJoin(imageDeletions).subscribe({
               next: () => {
                 console.log('All images deleted successfully.');
-                this.deletePet();  // Call the delete pet method after images are deleted
+                this.deletePet(); 
               },
               error: (err) => {
                 console.error('Error deleting images:', err);
@@ -123,7 +121,6 @@ export class PetDetailsComponent implements OnInit {
               },
             });
           } else {
-            // If there are no images, directly delete the pet
             this.deletePet();
           }
         }
@@ -139,7 +136,7 @@ export class PetDetailsComponent implements OnInit {
     this.petService.deletePetById(this.pet.id).subscribe({
       next: () => {
         alert(`${this.pet.name} has been deleted along with its images.`);
-        window.history.back(); // Go back after deletion
+        window.history.back();
       },
       error: (err) => {
         console.error('Error deleting pet:', err);
