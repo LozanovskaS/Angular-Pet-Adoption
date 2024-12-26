@@ -1,51 +1,85 @@
-<div class="pet-details" *ngIf="pet">
-    <div class="header">
-        <div class="actions">
-            <button mat-button color="primary">Edit</button>
-            <button mat-button color="warn">Delete</button>
-          </div>
+<div class="container mt-4" *ngIf="pet">
+  <div class="header mb-4">
+    <div class="d-flex justify-content-end">
+      <button mat-button color="primary" (click)="onEditPet()" class="btn btn-primary">Edit</button>
+      <button mat-button color="warn" (click)="onDeletePet()" class="btn btn-danger ml-2">Delete</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="main-image">
+        <img [src]="getMainImage()" alt="Main pet image" class="img-fluid rounded">
+      </div>
     </div>
 
-    <div class="content">
-        <div class="main-image">
-          <img [src]="pet.images?.[0]?.url || 'placeholder-image-url'" alt="Main pet image">
+    <div class="col-md-6">
+      <div class="pet-info">
+        <div class="info-row mb-3 d-flex">
+          <span class="font-weight-bold mr-3">Name:</span>
+          <span class="px-2">{{pet.name}}</span>
+        </div>
+        <div class="info-row mb-3 d-flex">
+          <span class="font-weight-bold mr-3">Species:</span>
+          <span class="px-2">{{pet.species}}</span>
+        </div>
+        <div class="info-row mb-3 d-flex">
+          <span class="font-weight-bold mr-3">Breed: </span>
+          <span class="px-2">{{pet.breed}}</span>
         </div>
 
-    <div class="pet-info">
-            <div class="info-row">
-              <span class="label">Name:</span>
-              <span class="value">{{pet.name}}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">Species:</span>
-              <span class="value">{{pet.species}}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">Breed:</span>
-              <span class="value">{{pet.breed}}</span>
-    </div>
-
-    <div class="description">
-        <p>{{pet.description}}</p>
+        <div class="description mb-4">
+          <span class="font-weight-bold mr-3">Description: </span>
+          <span class="px-2">{{pet.description}}</span>
+        </div>
       </div>
     </div>
+  </div>
 
-    <section>
-      <div class="example-button-row">
-        <button mat-flat-button class="custom-button">Image Gallery</button>
-        <button mat-flat-button class="custom-button">View adoption applications</button>
-      </div>
-    </section>
-
-    <!-- <mat-grid-list cols="3" rowHeight="200px" gutterSize="16px">
-        <mat-grid-tile *ngFor="let image of images">
-          <mat-card>
-            <img mat-card-image [src]="image.src" [alt]="image.alt" />
-            <mat-card-footer>
-              <h3>{{ image.title }}</h3>
-            </mat-card-footer>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list> -->
+  <div class="row">
+    <div class="col-12">
+      <mat-tab-group class="w-100">
+        <mat-tab label="Image Gallery">
+          <div class="gallery-container" *ngIf="pet.images?.length">
+            <div class="row">
+              <div *ngFor="let image of pet.images" class="col-md-3 mb-3">
+                <img [src]="image.url" alt="Pet image" class="gallery-image img-fluid rounded">
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Adoption applications">
+          <div class="container mt-4">
+            <div class="mb-3" *ngFor="let application of adoptionApplications">
+              <mat-card class="p-4 adoption-card">
+                <div class="d-flex align-items-center">
+                 
+                  <div class="position-relative me-4" style="width: 100px; height: 100px;">
+                    <img [src]="application.pet?.images?.[0]?.url || 'assets/placeholder-pet.jpg'"
+                         [alt]="application.pet?.name"
+                         class="w-100 h-100 rounded object-fit-cover">
+                    <mat-icon class="position-absolute top-0 start-0 fs-1 pet-icon secondary-text">pets</mat-icon>
+                  </div>
+        
+                  <div class="flex-grow-1">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h2 class="fs-4 fw-medium mb-2 secondary-text-light">
+                          Pet: {{ application.pet?.name }}
+                        </h2>
+                        <div class="d-flex gap-4 fw-light">
+                          <span>Applicant: {{ application.user?.firstName }} {{ application.user?.lastName }}</span>
+                          <span>Status: {{ application.status }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </div>

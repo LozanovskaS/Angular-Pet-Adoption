@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserPlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +11,10 @@ import { BrowserPlatformLocation } from '@angular/common';
   imports: [
     RouterOutlet,
     RouterModule,
-    MatToolbarModule,  
+    MatToolbarModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -25,4 +22,3 @@ import { BrowserPlatformLocation } from '@angular/common';
 export class AppComponent {
   title = 'Pet Adoption App';
 }
-

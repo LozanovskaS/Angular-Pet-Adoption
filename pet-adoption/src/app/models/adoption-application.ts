@@ -1,9 +1,9 @@
 import { Pet } from "./pet";
-import { User } from "./user";
+import { Users } from "./user";
 
 export interface AdoptionApplication {
     id?: number;
     pet: Pet;
-    user: User;
+    user: Users;
     status: string;
 }

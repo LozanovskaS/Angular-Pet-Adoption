@@ -1,1 +1,48 @@
-<p>adoption-application works!</p>
+<div class="container mt-4">
+    <div class="mb-3" *ngFor="let application of adoptionApplications">
+      <mat-card class="p-4 adoption-card">
+        <div class="d-flex align-items-center">
+          <!-- Pet Image -->
+          <div class="position-relative me-4" style="width: 100px; height: 100px;">
+            <img
+              [src]="application.pet?.images?.[0]?.url || 'assets/placeholder-pet.jpg'"
+              [alt]="application.pet?.name"
+              class="w-100 h-100 rounded object-fit-cover"
+            />
+            <mat-icon class="position-absolute top-0 start-0 fs-1 pet-icon secondary-text">pets</mat-icon>
+          </div>
+  
+          <!-- Pet Details -->
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <h2 class="fs-4 fw-medium mb-2 secondary-text-light">
+                  Pet: {{ application.pet?.name }}
+                </h2>
+                <div class="d-flex gap-4 fw-light">
+                  <span>Applicant: {{ application.user?.firstName }} {{ application.user?.lastName }}</span>
+                </div>
+              </div>
+              <!-- Status Dropdown -->
+              <mat-form-field
+  appearance="outline"
+  style="width: 150px; margin-left: auto; display: inline-block;"
+>
+  <mat-select
+    [(value)]="application.status"
+    (selectionChange)="onStatusChange(application, $event.value)"
+    placeholder="Change Status"
+  >
+    <mat-option *ngFor="let status of statusOptions" [value]="status">
+      {{ status }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  

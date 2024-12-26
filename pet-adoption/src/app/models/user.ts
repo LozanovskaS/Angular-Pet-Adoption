@@ -1,6 +1,6 @@
 import { AdoptionApplication } from "./adoption-application";
 
-export interface User {
+export interface Users {
     id?: number;
     username: string;
     email: string;

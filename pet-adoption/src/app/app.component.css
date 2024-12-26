@@ -1,8 +1,11 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 .navbar {
-  background-color: #5ad980;
+  background-color: #84a571;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 mat-toolbar-row {
@@ -26,3 +29,5 @@ a[mat-button] {
     background-color: rgba(163, 139, 139, 0.1);
   }
 }
+
+

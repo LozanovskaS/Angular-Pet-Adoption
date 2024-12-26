@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CreatePetDialogComponent } from '../create-pet-dialog/create-pet-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-pet-list',
@@ -16,8 +19,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    MatDialogModule
+],
   templateUrl: './pet-list.component.html',
   styleUrl: './pet-list.component.css'
 })
@@ -29,7 +33,8 @@ export class PetListComponent implements OnInit {
 
   constructor(
     private petService: PetService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -64,4 +69,29 @@ export class PetListComponent implements OnInit {
       pet.breed.toLowerCase().includes(searchTerm)
     );
   }
+
+  onCreatePet(): void {
+    const dialogRef = this.dialog.open(CreatePetDialogComponent, {
+      width: '500px',
+      disableClose: true,
+      autoFocus: true
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('New pet data:', result);
+  
+        this.petService.createPet(result).subscribe(
+          (response) => {
+            console.log('Pet created successfully:', response);
+            
+          },
+          (error) => {
+            console.error('Error creating pet:', error);
+           
+          }
+        );
+      }
+    });
+  } 
 }
