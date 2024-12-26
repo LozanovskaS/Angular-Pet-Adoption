@@ -15,7 +15,6 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  // Existing pet methods
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.apiUrl);
   }
